@@ -5,3 +5,11 @@
 #fun-responses {
   display: none;
 }
+
+#clean-output{
+  display: none;
+}
+
+#dirty-output{
+  display: none;
+}
