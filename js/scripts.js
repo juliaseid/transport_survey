@@ -14,3 +14,6 @@ $(document).ready(function(){
     $('#transportation_survey').hide();
   });
 });
+
+//Take user input, .push into two seperate arrays, get the length of those arrays, and then use them as value to compare.
+//Campare the lengths of the arrays in if else{} statements. Print out different text based on the arrays.length
