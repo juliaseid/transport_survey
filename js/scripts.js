@@ -1,22 +1,28 @@
 var cleanT = ["bike", "carpool", "walk", "bus", "train", "streetcar", "skateboard", "rollerblade", "scooter"]
 var dirtyT = ["car", "taxi", "rideshare"]
+var userArray = [];
+var userClean = [];
+var userDirty = [];
 
-function compare (arr1, arr2, arr3){
-const userClean [];
-const userDirty [];
 
+function compareC (arr1, arr2){
 arr1.forEach((e1)=>arr2.forEach((e2)=>{
   if(e1 === e2){
     userClean.push(e1);
+    console.log(e1);
+    
   }
+}));
+return userClean
 }
 
-arr1.forEach((e1)=>arr3.forEach((e3)=> {
-  if(e1 === e3){
+function compareD (arr1, arr2){
+arr1.forEach((e1)=>arr2.forEach((e2)=> {
+  if(e1 === e2){
     userDirty.push(e1);
   }
-}
-));
+}));
+return userDirty
 }
 
 $(document).ready(function(){
@@ -28,7 +34,7 @@ $(document).ready(function(){
       $('#work-responses').append(workTransportationMode + "<br>");
       $(userArray).push(workTransportationMode);
     });
-    //.push(userArray)
+   
     $("#fun-responses").show();
     $("input:checkbox[name=fun-transportation]:checked").each(function(){
       var funTransportationMode = $(this).val();
@@ -36,10 +42,13 @@ $(document).ready(function(){
     });
 
     //compare userArray to cleanT; forEach e in userArray, if e===any e in cleanT, .push to userCleanT
-    compare(userArray, cleanT, dirtyT);
+    compareC(userArray, cleanT);
+    compareD(userArray, dirtyT);
+    console.log(cleanT);
+    
     $('#transportation_survey').hide();
 
-    if(userClean.length > userDirty.length){
+    if(userClean.length >= userDirty.length){
       $("#clean-output").show();
     } else{
       $("#dirty-output").show();
